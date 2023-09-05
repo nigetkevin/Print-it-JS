@@ -37,21 +37,17 @@ console.log(dotsContainer)
 
 //  etape 3
 
-let i = 0
-
-while (i < slides.length) {
+slides.forEach((slide, i) => {
     const dot = document.createElement('div')
     dot.classList.add('dot')
     
-    (function(index) {
-        dot.addEventListener('click', () => {
-            console.log(`Bullet point ${index + 1} clicked`)
-        })
-    })(i)
+    dot.addEventListener('click', () => {
+        console.log(`Bullet point ${i + 1} clicked`)
+    })
     
     dotsContainer.appendChild(dot)
-    i++
-}
+})
+
 // etape 4
 
 function slide(i) {
