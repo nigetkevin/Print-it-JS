@@ -20,7 +20,6 @@ const slides = [
 const arrowLeft = document.querySelector(".arrow_left")
 const arrowRight = document.querySelector(".arrow_right")
 
-			// etape 2
 arrowLeft.addEventListener("click", () => {
     console.log("fleche de gauche")
 })
@@ -33,9 +32,7 @@ arrowRight.addEventListener("click", () => {
 
 const dotsContainer = document.querySelector(".dots")
 
-console.log(dotsContainer)
 
-//  etape 3
 
 slides.forEach((slide, i) => {
     const dot = document.createElement('div')
@@ -47,8 +44,6 @@ slides.forEach((slide, i) => {
     
     dotsContainer.appendChild(dot)
 })
-
-// etape 4
 
 function slide(i) {
     const slideImage = document.querySelector('.banner-img')
