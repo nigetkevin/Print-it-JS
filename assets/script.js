@@ -16,59 +16,45 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
-			//  etape 1
+
 const arrowLeft = document.querySelector(".arrow_left")
 const arrowRight = document.querySelector(".arrow_right")
-
-arrowLeft.addEventListener("click", () => {
-    console.log("fleche de gauche")
-})
-
-
-arrowRight.addEventListener("click", () => {
-    console.log("fleche de droite")
-})
-
-
 const dotsContainer = document.querySelector(".dots")
 
 
+let currentI = 0
 
-slides.forEach((slide, i) => {
-    const dot = document.createElement('div')
-    dot.classList.add('dot')
-    
-    dot.addEventListener('click', () => {
-        console.log(`Bullet point ${i + 1} clicked`)
-    })
-    
+slides.forEach(() => {
+    const dot = document.createElement("div")
+    dot.classList.add("dot")   
+
     dotsContainer.appendChild(dot)
 })
 
-function slide(i) {
-    const slideImage = document.querySelector('.banner-img')
-    const slideText = document.querySelector('#banner p')
+function updateSlide(i) {
+    const slideImage = document.querySelector(".banner-img")
+    const slideText = document.querySelector("#banner p")
     
     slideImage.src = "./assets/images/slideshow/" + slides[i].image
     slideText.innerHTML = slides[i].tagLine
 }
 
 arrowLeft.addEventListener("click", function() {
+    console.log("fleche de gauche")
     currentI = (currentI - 1 + slides.length) % slides.length
     activeDot(currentI)
-    slide(currentI)
+    updateSlide(currentI)
 })
 
 arrowRight.addEventListener("click", function() {
+    console.log("fleche de droite")
     currentI = (currentI + 1) % slides.length
     activeDot(currentI)
-    slide(currentI)
+    updateSlide(currentI)
 })
 
-let currentI = 0
-
-function activeDot(i) {
-    const dots = document.querySelectorAll('.dot')
-    dots.forEach(dot => dot.classList.remove('dot_selected'))
-    dots[i].classList.add('dot_selected')
+function activeDot(i) {        
+    const dots = document.querySelectorAll(".dot")
+    dots.forEach(dot => dot.classList.remove("dot_selected"))
+    dots[i].classList.add("dot_selected")    
 }
