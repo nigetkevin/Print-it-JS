@@ -52,9 +52,3 @@ arrowRight.addEventListener("click", function() {
     activeDot(currentI)
     updateSlide(currentI)
 })
-
-function activeDot(i) {        
-    const dots = document.querySelectorAll(".dot")
-    dots.forEach(dot => dot.classList.remove("dot_selected"))
-    dots[i].classList.add("dot_selected")    
-}
