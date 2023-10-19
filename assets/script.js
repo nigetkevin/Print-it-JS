@@ -29,7 +29,14 @@ slides.forEach(() => {
     dot.classList.add("dot")   
 
     dotsContainer.appendChild(dot)
+    activeDot(currentI)
 })
+
+function activeDot(i) {        
+    const dots = document.querySelectorAll(".dot")
+    dots.forEach(dot => dot.classList.remove("dot_selected"))
+    dots[i].classList.add("dot_selected")    
+}
 
 function updateSlide(i) {
     const slideImage = document.querySelector(".banner-img")
